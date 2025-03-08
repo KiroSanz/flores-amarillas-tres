@@ -70,3 +70,25 @@ function ocultarTitulo() {
 
 // Llama a la función después de 216 segundos (216,000 milisegundos)
 setTimeout(ocultarTitulo, 216000);
+
+// Definir o tempo inicial (140 segundos)
+let timeLeft = 140;
+
+// Selecionar o elemento que exibirá o tempo (dentro da frase)
+const timerElement = document.getElementById('timer');
+
+// Função para atualizar o contador a cada segundo
+const interval = setInterval(() => {
+    // Atualiza o texto do timer com o tempo restante
+    timerElement.textContent = timeLeft;
+
+    // Decrementa o tempo restante
+    timeLeft--;
+
+    // Quando o tempo chegar a 0, para o timer e exibe uma mensagem
+    if (timeLeft < 0) {
+        clearInterval(interval);
+        timerElement.textContent = "0 (ta alí ó)";
+        document.getElementById('botao').style.display = "block"; // Exibe o botão
+    }
+}, 1000); // Atualiza a cada 1000 milissegundos (1 segundo)
